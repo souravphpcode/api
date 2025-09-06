@@ -1,10 +1,10 @@
 const app = require('./app');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 7044;
 
 const server = app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`);
-    console.log(`📚 API Documentation: http://localhost:${PORT}/api-docs`);
+    console.log(`📚 API Documentation: http://localhost:${PORT}/api`);
     console.log(`🔗 API Endpoints: http://localhost:${PORT}/api/users`);
     console.log(`❤️  Health Check: http://localhost:${PORT}/health`);
 });
