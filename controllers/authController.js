@@ -1,4 +1,5 @@
-const Auth = require('../models/auth');
+const Auth = require('../models/Auth');
+
 
 class AuthController {
     // Register new user
