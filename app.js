@@ -17,7 +17,7 @@ app.use(helmet());
 
 // CORS
 app.use(cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:7044',
+    origin: process.env.CLIENT_URL || 'http://localhost:3000',
     credentials: true
 }));
 
@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 testConnection();
 
 // Swagger Documentation
-app.use('/api', swaggerUi.serve, swaggerUi.setup(specs, {
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {
     explorer: true,
     customCss: '.swagger-ui .topbar { display: none }',
     customSiteTitle: "Node.js MySQL API Documentation"
@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
     res.json({
         success: true,
         message: 'Welcome to Node.js MySQL API with JWT Authentication',
-        documentation: '/api',
+        documentation: '/api-docs',
         endpoints: {
             auth: '/api/auth',
             users: '/api/users',
@@ -79,7 +79,7 @@ app.use('*', (req, res) => {
         success: false,
         message: 'Route not found',
         availableRoutes: {
-            documentation: '/api',
+            documentation: '/api-docs',
             auth: '/api/auth',
             users: '/api/users',
             health: '/health'
